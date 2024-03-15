@@ -33,6 +33,18 @@ Gradle 8(optional, wrapper is included in project)
 ### Clone Repository
 > `$ git clone https://github.com/Legionivo/test-task.git`
 
+### Run Tests With Gradle
+-  Run tests(Linux/MacOS commands):
+* `./gradlew clean test` - run all tests
+* `./gradlew clean test -Dtags=Sometag` - run tests filtered by "Sometag"
+* `./gradlew clean test -Dexcludetags=Sometag` - exclude tests filtered by "Sometag"
+* `./gradlew clean test -Dexcludetags=sometag1,sometag2` - exclude tests filtered by multiple  tags
+* `./gradlew clean test -Dselenide.browser=browsername` - run tests in different browser
+* `./gradlew clean test -Dbase.url=https://example.com` - configure BaseUrl of application
+* `./gradlew clean test -Dselenide.remote=http://seleniumgrid.example.com:4444/wd/hub` - run tests in Selenium Hub
+
+    - Additional command line arguments see in com.codeborne.selenide/Configuration
+
 ### Configuration Files
 You can change values for your case.
 
@@ -53,17 +65,6 @@ Each developer often works with his own environment, uses different parameters, 
 Everyone creates a custom_config.properties file and adds it to .gitignore. This file has a higher priority than the config.properties file. 
 The owner library reads this file and applies the necessary parameters.
 
-### Run Tests With Gradle
--  Run tests(Linux/MacOS commands):
-* `./gradlew clean test` - run all tests
-* `./gradlew clean test -Dtags=Sometag` - run tests filtered by "Sometag"
-* `./gradlew clean test -Dexcludetags=Sometag` - exclude tests filtered by "Sometag"
-* `./gradlew clean test -Dexcludetags=sometag1,sometag2` - exclude tests filtered by multiple  tags
-* `./gradlew clean test -Dselenide.browser=browsername` - run tests in different browser
-* `./gradlew clean test -Dbase.url=https://example.com` - configure BaseUrl of application
-* `./gradlew clean test -Dselenide.remote=http://seleniumgrid.example.com:4444/wd/hub` - run tests in Selenium Hub
-
-    - Additional command line arguments see in com.codeborne.selenide/Configuration
 
 #### Perform On Browsers
 * `./gradlew clean test -Dselenide.browser=firefox`
